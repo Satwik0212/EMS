@@ -1,0 +1,9 @@
+.radial-progress {
+  background: radial-gradient(closest-side, white 79%, transparent 80% 100%),
+              conic-gradient(#5048e5 85%, #f1f0f4 0);
+}
+
+.dark .radial-progress {
+  background: radial-gradient(closest-side, #0f172a 79%, transparent 80% 100%),
+              conic-gradient(#5048e5 85%, #1e293b 0);
+}

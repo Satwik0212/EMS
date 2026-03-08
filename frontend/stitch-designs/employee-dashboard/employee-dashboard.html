@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5048e5",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#121121",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .radial-progress {
+            background: radial-gradient(closest-side, white 79%, transparent 80% 100%),
+                        conic-gradient(#5048e5 85%, #f1f0f4 0);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 flex-shrink-0 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col">
+<div class="p-6 flex items-center gap-3">
+<div class="size-10 bg-primary rounded-xl flex items-center justify-center text-white">
+<span class="material-symbols-outlined">layers</span>
+</div>
+<div>
+<h1 class="text-slate-900 dark:text-white font-bold text-lg leading-tight">Stratum EMS</h1>
+<p class="text-xs text-slate-500 font-medium">Employee Portal</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1 mt-4">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary/10 text-primary font-semibold" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span>Performance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">military_tech</span>
+<span>Career Path</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+<span>Documents</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-100 dark:border-slate-800">
+<button class="w-full flex items-center justify-center gap-2 bg-primary text-white py-2.5 rounded-lg font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-sm">person</span>
+<span>View Profile</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col overflow-y-auto">
+<!-- Header -->
+<header class="sticky top-0 z-10 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-8 py-4 flex items-center justify-between">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-xl pl-10 pr-4 py-2 focus:ring-2 focus:ring-primary/20 text-sm" placeholder="Search resources, documents..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-red-500 border-2 border-white rounded-full"></span>
+</button>
+<div class="h-8 w-px bg-slate-200 dark:bg-slate-700 mx-2"></div>
+<div class="flex items-center gap-3 cursor-pointer group">
+<div class="text-right">
+<p class="text-sm font-bold text-slate-900 dark:text-white leading-none">Emily Carter</p>
+<p class="text-xs text-slate-500 mt-1">Marketing Dept.</p>
+</div>
+<img alt="Emily Carter" class="size-10 rounded-full object-cover border-2 border-white shadow-sm" data-alt="Professional headshot of Emily Carter" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzd0iK9tzJCoHgeFPGm4BVF9uoVlRS4tlx4CPr0BtT__FMv9nueHzRy6CdGE7xVw4CYuJOEziFLrY-v824oC_DzJt6uttU-dCJr2gk7Ofpa8DIU--Dxzh0AjFmTnyKUCFxO3gtfJUz7KJOvopRn0zhByPW2XsdRti1oi6UqXz3UfmYzcjD5REt_7V_B1gtSb-cRtWraiKZWFuMeAoXMkWwwcdzSG_Kpm2jhhYOkbSD9OiggbAOgwi-BO7XOPWtwukntecPtIDGgA"/>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-8 max-w-7xl mx-auto w-full space-y-8">
+<!-- Welcome Section -->
+<section class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+<div>
+<h2 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Good Morning, Emily 👋</h2>
+<p class="text-slate-500 dark:text-slate-400 mt-2 text-lg">You improved your performance score by <span class="text-green-600 font-bold">6%</span> this quarter. Keep up the great work!</p>
+</div>
+<div class="flex flex-wrap gap-3">
+<button class="px-4 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold text-sm flex items-center gap-2 hover:bg-slate-50 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-lg">edit</span> Edit Profile
+                        </button>
+<button class="px-4 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold text-sm flex items-center gap-2 hover:bg-slate-50 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-lg">reviews</span> Request Review
+                        </button>
+<button class="px-4 py-2.5 rounded-xl bg-primary text-white font-bold text-sm flex items-center gap-2 hover:shadow-lg hover:shadow-primary/30 transition-all">
+<span class="material-symbols-outlined text-lg">download</span> Download Report
+                        </button>
+</div>
+</section>
+<!-- Top Row: Profile and Performance -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Profile Card -->
+<div class="lg:col-span-2 bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+<div class="h-24 bg-gradient-to-r from-primary/20 to-primary/40" data-alt="Abstract gradient background pattern"></div>
+<div class="px-8 pb-8 -mt-12">
+<div class="flex items-end gap-6 mb-6">
+<img alt="Emily Carter" class="size-32 rounded-2xl object-cover border-4 border-white dark:border-slate-900 shadow-xl" data-alt="High quality profile photo of Emily Carter" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqggqBHPbxyAdLRZN5bqnIK37hQi2XIVtuSTV8WYNg01SgvR83WKshc1dmFhFjSOGc-aJSkXVpBcT7fgfEUasGcjTfCIfFW8ss_Nb8smBUeX5QZ6J8_KujqwMuJAIQ0H1MpPZyVB4pZyVB4pTJ6Z9_M39m5eEes3XhaPUi2mB_xJUVXQg4jpMTsJo8eDoCnNAmh-kdoZIPjutOfhXHSlrJktJTYG9AEmNz2bXIP37D0ydcx-i7T5PILLLKEQ3FkOD0Wkt5a6orwnFy66SQ"/>
+<div class="pb-2">
+<h3 class="text-2xl font-bold text-slate-900 dark:text-white">Emily Carter</h3>
+<p class="text-primary font-semibold">Marketing Specialist • Marketing Department</p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+<div>
+<p class="text-xs text-slate-400 uppercase font-bold tracking-wider">Employee ID</p>
+<p class="text-slate-700 dark:text-slate-200 font-semibold mt-1">STR-9920</p>
+</div>
+<div>
+<p class="text-xs text-slate-400 uppercase font-bold tracking-wider">Joined</p>
+<p class="text-slate-700 dark:text-slate-200 font-semibold mt-1">Mar 2022</p>
+</div>
+<div>
+<p class="text-xs text-slate-400 uppercase font-bold tracking-wider">Manager</p>
+<p class="text-slate-700 dark:text-slate-200 font-semibold mt-1">Sarah Johnson</p>
+</div>
+<div>
+<p class="text-xs text-slate-400 uppercase font-bold tracking-wider">Location</p>
+<p class="text-slate-700 dark:text-slate-200 font-semibold mt-1">New York, NY</p>
+</div>
+<div>
+<p class="text-xs text-slate-400 uppercase font-bold tracking-wider">Type</p>
+<span class="inline-flex mt-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-700">Full-time</span>
+</div>
+<div>
+<p class="text-xs text-slate-400 uppercase font-bold tracking-wider">Email</p>
+<p class="text-slate-700 dark:text-slate-200 font-semibold mt-1 truncate">emily.carter@company.com</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Performance Score Card -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 p-8 flex flex-col items-center text-center justify-between">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Performance Score</h3>
+<div class="relative flex items-center justify-center my-6">
+<div class="radial-progress size-40 rounded-full flex items-center justify-center">
+<div class="bg-white dark:bg-slate-900 size-32 rounded-full flex flex-col items-center justify-center">
+<span class="text-4xl font-black text-slate-900 dark:text-white">85</span>
+<span class="text-xs text-slate-500 font-bold uppercase tracking-widest">Out of 100</span>
+</div>
+</div>
+</div>
+<div class="w-full space-y-4">
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-500">vs Last Quarter</span>
+<span class="text-green-600 font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span> +6%
+                                </span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-500">Dept. Rank</span>
+<span class="text-slate-900 dark:text-white font-bold">Top 20%</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-500">Next Review</span>
+<span class="text-primary font-bold">45 Days</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Middle Row: Chart and Timeline -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Salary Growth Chart -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 p-8">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Salary Evolution</h3>
+<span class="text-xs font-bold text-slate-400 uppercase tracking-widest">2022 - 2024</span>
+</div>
+<div class="relative h-64 w-full flex items-end gap-2">
+<!-- Simple Bar Chart Representation with Gradient -->
+<div class="flex-1 flex flex-col justify-end group cursor-pointer">
+<div class="relative h-[65%] w-full bg-slate-100 dark:bg-slate-800 rounded-t-xl overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary/20 h-full"></div>
+<div class="absolute top-2 left-0 right-0 text-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="bg-slate-900 text-white text-[10px] px-2 py-1 rounded">Base</span>
+</div>
+</div>
+<p class="text-center mt-3 text-xs font-bold text-slate-500">2022 ($65K)</p>
+</div>
+<div class="flex-1 flex flex-col justify-end group cursor-pointer">
+<div class="relative h-[72%] w-full bg-slate-100 dark:bg-slate-800 rounded-t-xl overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary/40 h-full"></div>
+<div class="absolute top-2 left-0 right-0 text-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="bg-slate-900 text-white text-[10px] px-2 py-1 rounded">+11%</span>
+</div>
+</div>
+<p class="text-center mt-3 text-xs font-bold text-slate-500">2023 ($72K)</p>
+</div>
+<div class="flex-1 flex flex-col justify-end group cursor-pointer">
+<div class="relative h-[78%] w-full bg-slate-100 dark:bg-slate-800 rounded-t-xl overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary h-full"></div>
+<div class="absolute top-2 left-0 right-0 text-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="bg-slate-900 text-white text-[10px] px-2 py-1 rounded">+8%</span>
+</div>
+</div>
+<p class="text-center mt-3 text-xs font-bold text-slate-500">2024 ($78K)</p>
+</div>
+</div>
+</div>
+<!-- Promotion Timeline -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 p-8">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-8">Career Timeline</h3>
+<div class="space-y-8 relative before:absolute before:inset-y-0 before:left-[11px] before:w-0.5 before:bg-slate-100 dark:before:bg-slate-800">
+<!-- Item 1 -->
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 size-6 rounded-full bg-primary flex items-center justify-center text-white ring-4 ring-white dark:ring-slate-900">
+<span class="material-symbols-outlined text-[14px]">stars</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-bold text-slate-900 dark:text-white">Marketing Specialist</h4>
+<span class="px-2 py-0.5 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase">Promoted</span>
+</div>
+<p class="text-sm text-slate-500 mt-1">Jan 2025 • Strategy &amp; Ops</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 size-6 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-500 ring-4 ring-white dark:ring-slate-900">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-bold text-slate-900 dark:text-white text-opacity-70">Marketing Executive</h4>
+<span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 text-[10px] font-bold uppercase">Promotion</span>
+</div>
+<p class="text-sm text-slate-500 mt-1">Jul 2023 • Brand Management</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 size-6 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-500 ring-4 ring-white dark:ring-slate-900">
+<span class="material-symbols-outlined text-[14px]">work</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-bold text-slate-900 dark:text-white text-opacity-70">Marketing Associate</h4>
+</div>
+<p class="text-sm text-slate-500 mt-1">Mar 2022 • Joined Stratum EMS</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Row: Insights, Goals, Activity -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- AI Insight & Goals -->
+<div class="lg:col-span-2 space-y-8">
+<!-- AI Career Insight -->
+<div class="bg-gradient-to-br from-indigo-600 to-primary p-1 rounded-2xl shadow-lg shadow-primary/20" data-alt="Vibrant indigo and primary blue gradient background">
+<div class="bg-white dark:bg-slate-900 rounded-xl p-6 flex gap-6 items-start">
+<div class="size-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-2">
+<h3 class="font-bold text-slate-900 dark:text-white">AI Career Insight</h3>
+<span class="px-2 py-0.5 rounded bg-indigo-100 text-indigo-700 text-[10px] font-black">BETA</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                                        You rank in the <span class="font-bold text-primary">top 18%</span> of your department based on KPI performance and peer reviews. 
+                                        Based on current trends, you are <span class="text-slate-900 dark:text-white font-bold underline decoration-primary/40">likely eligible for promotion</span> to Senior Marketing Specialist within 6-9 months.
+                                    </p>
+</div>
+</div>
+</div>
+<!-- Interactive Goals -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 p-8">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-6">Current Goals</h3>
+<div class="space-y-6">
+<!-- Goal 1 -->
+<div class="space-y-2">
+<div class="flex justify-between text-sm">
+<span class="font-bold text-slate-700 dark:text-slate-200">Q2 Campaign ROI Improvement</span>
+<span class="text-slate-500 font-medium">82%</span>
+</div>
+<div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[82%]"></div>
+</div>
+<div class="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-primary">
+<span class="size-1.5 bg-primary rounded-full animate-pulse"></span> On Track
+                                    </div>
+</div>
+<!-- Goal 2 -->
+<div class="space-y-2">
+<div class="flex justify-between text-sm">
+<span class="font-bold text-slate-700 dark:text-slate-200">Advanced Analytics Certification</span>
+<span class="text-slate-500 font-medium">45%</span>
+</div>
+<div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-orange-400 rounded-full w-[45%]"></div>
+</div>
+<div class="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-orange-500">
+<span class="size-1.5 bg-orange-500 rounded-full"></span> In Progress
+                                    </div>
+</div>
+<!-- Goal 3 -->
+<div class="space-y-2">
+<div class="flex justify-between text-sm">
+<span class="font-bold text-slate-700 dark:text-slate-200">Lead Product Launch Event</span>
+<span class="text-slate-500 font-medium">100%</span>
+</div>
+<div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-green-500 rounded-full w-full"></div>
+</div>
+<div class="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-green-500">
+<span class="material-symbols-outlined text-[12px]">check_circle</span> Completed
+                                    </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar Widgets: Events and Activity -->
+<div class="space-y-8">
+<!-- Upcoming Events -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 p-6">
+<h3 class="font-bold text-slate-900 dark:text-white mb-4">Upcoming Events</h3>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group cursor-pointer border border-transparent hover:border-slate-100 dark:hover:border-slate-700">
+<div class="size-10 rounded-lg bg-primary/10 flex flex-col items-center justify-center text-primary">
+<span class="text-[10px] font-bold">JAN</span>
+<span class="text-sm font-black">22</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-slate-900 dark:text-white">Quarterly Review</h4>
+<p class="text-xs text-slate-500">10:00 AM • Zoom</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group cursor-pointer border border-transparent hover:border-slate-100 dark:hover:border-slate-700">
+<div class="size-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex flex-col items-center justify-center text-slate-500">
+<span class="text-[10px] font-bold">JAN</span>
+<span class="text-sm font-black">24</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-slate-900 dark:text-white">Marketing Sync</h4>
+<p class="text-xs text-slate-500">02:30 PM • Room 402</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group cursor-pointer border border-transparent hover:border-slate-100 dark:hover:border-slate-700">
+<div class="size-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex flex-col items-center justify-center text-slate-500">
+<span class="text-[10px] font-bold">JAN</span>
+<span class="text-sm font-black">28</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-slate-900 dark:text-white">AI Workshop</h4>
+<p class="text-xs text-slate-500">09:00 AM • Online</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Activity -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 p-6">
+<h3 class="font-bold text-slate-900 dark:text-white mb-4">Recent Activity</h3>
+<div class="space-y-6 relative before:absolute before:inset-y-0 before:left-[19px] before:w-px before:bg-slate-100 dark:before:bg-slate-800">
+<div class="relative pl-10">
+<div class="absolute left-0 top-0 size-10 rounded-full bg-green-50 dark:bg-green-900/20 border border-green-100 dark:border-green-800 flex items-center justify-center text-green-600">
+<span class="material-symbols-outlined text-sm">payments</span>
+</div>
+<h4 class="text-xs font-bold text-slate-900 dark:text-white">Salary updated</h4>
+<p class="text-[10px] text-slate-500">Yesterday at 4:30 PM</p>
+</div>
+<div class="relative pl-10">
+<div class="absolute left-0 top-0 size-10 rounded-full bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 flex items-center justify-center text-blue-600">
+<span class="material-symbols-outlined text-sm">rate_review</span>
+</div>
+<h4 class="text-xs font-bold text-slate-900 dark:text-white">Review submitted</h4>
+<p class="text-[10px] text-slate-500">2 days ago</p>
+</div>
+<div class="relative pl-10">
+<div class="absolute left-0 top-0 size-10 rounded-full bg-purple-50 dark:bg-purple-900/20 border border-purple-100 dark:border-purple-800 flex items-center justify-center text-purple-600">
+<span class="material-symbols-outlined text-sm">school</span>
+</div>
+<h4 class="text-xs font-bold text-slate-900 dark:text-white">Course completed</h4>
+<p class="text-[10px] text-slate-500">5 days ago</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="mt-auto px-8 py-6 text-center text-slate-400 text-xs">
+                © 2024 Stratum EMS. All rights reserved. • <a class="hover:text-primary underline" href="#">Privacy Policy</a> • <a class="hover:text-primary underline" href="#">Support</a>
+</footer>
+</main>
+</div>
+</body></html>

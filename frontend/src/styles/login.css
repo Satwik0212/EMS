@@ -1,0 +1,23 @@
+body {
+  font-family: 'Manrope', sans-serif;
+}
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+.glass-effect:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+.login-card {
+  box-shadow: 0 25px 50px -12px rgba(80, 72, 229, 0.08);
+}
+input:focus {
+  transform: scale(1.01);
+}
+button:active {
+  transform: scale(0.98);
+}

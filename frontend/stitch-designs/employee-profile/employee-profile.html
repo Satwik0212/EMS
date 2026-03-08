@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Employee Profile - Emily Carter | Stratum EMS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5048e5",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#121121",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .sidebar-item-active { background-color: rgba(80, 72, 229, 0.1); color: #5048e5; }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px); }
+    </style>
+<style>
+    .hover-lift { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); }
+    .btn-scale { transition: transform 0.1s ease; }
+    .btn-scale:active { transform: scale(0.98); }
+    .chart-dot { transition: r 0.2s ease; }
+    .chart-dot:hover { r: 5; cursor: pointer; }
+</style></head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+<div class="flex min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col fixed h-full">
+<div class="p-6 flex items-center gap-3">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">layers</span>
+</div>
+<div>
+<h1 class="text-lg font-bold leading-none tracking-tight">Stratum EMS</h1>
+<p class="text-xs text-slate-500 dark:text-slate-400">HR Management</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">dashboard</span>
+<span class="text-sm font-semibold">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg sidebar-item-active" href="#">
+<span class="material-symbols-outlined text-[22px]">group</span>
+<span class="text-sm font-semibold">Employees</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">payments</span>
+<span class="text-sm font-semibold">Payroll</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">bar_chart</span>
+<span class="text-sm font-semibold">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">settings</span>
+<span class="text-sm font-semibold">Settings</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 p-2">
+<div class="size-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Profile photo of Alex Rivera HR Director" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCs1FLxaxEdayLGd7Xt26QI9x-Sg4ATJN0z0Kx7qRc2vVZ6cDJxRpLbDh9lpLpjgLhlxA80kFAfpPurW6CL-zbXVF1BU70-uxWkSgg8FIBuqQkFD9oVBRXUHeQt24kHzacToDt7geNjMIFHDXfpPX1Lox3OoNFDT5Q_Y4oECNMlJ6a4frmoLADkYzt9vONnRP08EjsX4ikJQFL7Hf07TSHDJFEyL4jIu4Vx1Cw1BkQ5HYKVP-TyiCukuBrYuC94auJ6O8wJ3mYedg"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold truncate">Alex Rivera</p>
+<p class="text-xs text-slate-500 truncate">HR Director</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 ml-64 p-8">
+<!-- Header Section -->
+<header class="flex flex-col gap-6 mb-8">
+<div class="flex items-center justify-between">
+<div class="flex-1 max-w-md relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 rounded-xl pl-10 pr-4 py-2 text-sm focus:ring-primary focus:border-primary" placeholder="Search employees..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="size-10 flex items-center justify-center rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-500 btn-scale">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-8 w-px bg-slate-200 dark:bg-slate-800"></div>
+<div class="text-right">
+<p class="text-sm font-bold">Alex Rivera</p>
+<p class="text-xs text-primary">Admin Access</p>
+</div>
+</div>
+</div>
+<!-- Breadcrumbs & Actions -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<nav class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-1">
+<span>Dashboard</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span>Employees</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-primary font-medium">Emily Carter</span>
+</nav>
+<h2 class="text-2xl font-extrabold tracking-tight">Employee Profile</h2><p class="text-sm text-slate-500 mt-1 font-medium">View detailed performance analytics, salary history, and career progression.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm font-bold hover:bg-slate-50 transition-all btn-scale">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+                            Edit Employee
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm font-bold hover:bg-slate-50 transition-all btn-scale">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+                            Adjust Salary
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-xl text-sm font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-all btn-scale">
+<span class="material-symbols-outlined text-[18px]">trending_up</span>
+                            Promote Employee
+                        </button>
+<div class="relative group">
+<button class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm font-bold hover:bg-slate-50 transition-all">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+        More Actions
+    </button>
+<div class="absolute right-0 mt-2 w-56 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 py-2 hidden group-hover:block z-50">
+<a class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700" href="#">
+<span class="material-symbols-outlined text-sm">block</span> Suspend Employee
+        </a>
+<a class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700" href="#">
+<span class="material-symbols-outlined text-sm">move_item</span> Transfer Department
+        </a>
+<a class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700" href="#">
+<span class="material-symbols-outlined text-sm">download</span> Export Performance Report
+        </a>
+<a class="flex items-center gap-2 px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700" href="#">
+<span class="material-symbols-outlined text-sm">send</span> Send Feedback Request
+        </a>
+</div>
+</div></div>
+</div>
+</header>
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column: Basic Info & Performance -->
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<!-- Main Profile Card -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden hover-lift">
+<div class="absolute top-0 right-0 p-6">
+<span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-bold rounded-full">ACTIVE</span>
+</div>
+<div class="flex flex-col md:flex-row gap-8 items-start">
+<div class="size-32 rounded-2xl bg-primary/10 flex items-center justify-center overflow-hidden border-4 border-white dark:border-slate-800 shadow-xl">
+<img class="w-full h-full object-cover" data-alt="Professional portrait of Emily Carter" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNEU8oxqXIE3uTUHm9GvrY44wbzeQ-dhN7a0aimJX_fSTsuiFl3hsKt2CI6XvYcgignJRyn2KIzov538cSaiSMwAw0xvA0uJ-wOFxnEwIG3gx9wnL7adUslHQWBzFDxbPLQqqrFDxQkIlPnhob-y8a7JPtYTt90GOeSe7EgzZkIOUMmR385CX4K5Dyp08dc9LsVZRpZqZn8PD_A4tbFsCBnQpcF9XxwV9vU3L8Ok0pO_THG0r8worrz7pr92aBJVjZkg13UKzv4Q"/>
+</div>
+<div class="flex-1 space-y-4">
+<div>
+<h3 class="text-3xl font-extrabold tracking-tight">Emily Carter</h3>
+<p class="text-primary font-semibold">Marketing Specialist • Marketing &amp; Communications</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<div>
+<p class="text-xs text-slate-500 uppercase font-bold tracking-wider mb-1">Employee ID</p>
+<p class="font-semibold text-sm">STR-9920</p>
+</div>
+<div>
+<p class="text-xs text-slate-500 uppercase font-bold tracking-wider mb-1">Direct Manager</p>
+<p class="font-semibold text-sm">Sarah Johnson</p>
+</div>
+<div>
+<p class="text-xs text-slate-500 uppercase font-bold tracking-wider mb-1">Location</p>
+<p class="font-semibold text-sm">New York, US</p>
+</div>
+<div>
+<p class="text-xs text-slate-500 uppercase font-bold tracking-wider mb-1">Salary</p>
+<p class="font-bold text-sm text-primary">$78,000/yr</p>
+</div>
+</div>
+<div class="flex flex-wrap gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-2 text-sm bg-slate-50 dark:bg-slate-800/50 px-3 py-1.5 rounded-lg border border-slate-100 dark:border-slate-800">
+<span class="material-symbols-outlined text-slate-400 text-[18px]">mail</span>
+                                        emily.carter@stratum.com
+                                    </div>
+<div class="flex items-center gap-2 text-sm bg-slate-50 dark:bg-slate-800/50 px-3 py-1.5 rounded-lg border border-slate-100 dark:border-slate-800">
+<span class="material-symbols-outlined text-slate-400 text-[18px]">calendar_today</span>
+                                        Joined Mar 2022
+                                    </div>
+<div class="flex items-center gap-2 text-sm bg-slate-50 dark:bg-slate-800/50 px-3 py-1.5 rounded-lg border border-slate-100 dark:border-slate-800">
+<span class="material-symbols-outlined text-slate-400 text-[18px]">badge</span>
+                                        Full-time
+                                    </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Charts Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Salary History -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover-lift">
+<h4 class="font-bold mb-6 flex items-center justify-between">
+        Salary Growth History
+        <span class="text-xs font-normal text-slate-500">Compounded +19% since hire</span>
+</h4>
+<div class="h-48 flex items-end justify-between gap-6 px-4">
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-lg relative h-[65%]">
+<div class="absolute inset-0 bg-primary/20 rounded-t-lg h-full transition-opacity group-hover:opacity-100"></div>
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 text-xs font-bold bg-white dark:bg-slate-800 px-2 py-1 rounded border border-slate-100 shadow-sm">$65k</div>
+</div>
+<span class="text-xs text-slate-500 font-bold">2022</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-lg relative h-[72%]">
+<div class="absolute inset-0 bg-primary/40 rounded-t-lg h-full transition-opacity group-hover:opacity-100"></div>
+<div class="absolute -top-14 left-1/2 -translate-x-1/2 flex flex-col items-center">
+<span class="text-[10px] text-green-600 font-bold mb-1">+10.7%</span>
+<span class="text-xs font-bold bg-white dark:bg-slate-800 px-2 py-1 rounded border border-slate-100 shadow-sm">$72k</span>
+</div>
+</div>
+<span class="text-xs text-slate-500 font-bold">2023</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-primary rounded-t-lg relative h-[78%]">
+<div class="absolute -top-14 left-1/2 -translate-x-1/2 flex flex-col items-center">
+<span class="text-[10px] text-green-600 font-bold mb-1">+8.3%</span>
+<span class="text-xs font-bold bg-primary text-white px-2 py-1 rounded shadow-sm">$78k</span>
+</div>
+</div>
+<span class="text-xs text-slate-500 font-bold">2024</span>
+</div>
+</div>
+</div>
+<!-- Performance Trend -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover-lift">
+<h4 class="font-bold mb-6 flex items-center justify-between">
+        Performance Trend
+        <span class="text-xs font-normal text-slate-500">Consistently Outperforming</span>
+</h4>
+<div class="h-48 relative flex flex-col justify-between">
+<div class="flex-1 relative">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 100 40">
+<defs>
+<lineargradient id="trendGradient" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#5048e5" stop-opacity="0.1"></stop>
+<stop offset="100%" stop-color="#5048e5" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,35 C10,33 15,31 25,30 C35,29 40,33 50,32 C60,31 65,25 75,22 C85,19 90,12 100,10" fill="none" stroke="#5048e5" stroke-linecap="round" stroke-width="2.5"></path>
+<circle class="chart-dot" cx="0" cy="35" fill="#5048e5" r="2.5"></circle>
+<circle class="chart-dot" cx="25" cy="30" fill="#5048e5" r="2.5"></circle>
+<circle class="chart-dot" cx="50" cy="32" fill="#5048e5" r="2.5"></circle>
+<circle class="chart-dot" cx="75" cy="22" fill="#5048e5" r="2.5"></circle>
+<circle class="chart-dot" cx="100" cy="10" fill="#5048e5" r="3.5"></circle>
+</svg>
+</div>
+<div class="flex justify-between mt-4">
+<span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Q1 2023</span>
+<span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Q2</span>
+<span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Q3</span>
+<span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Q4 2023</span>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Review Section -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl p-8 border-l-4 border-primary shadow-sm hover-lift">
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-8">
+<div class="space-y-2">
+<h4 class="text-xl font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+                AI Assistant: Performance Insights
+            </h4>
+<p class="text-slate-600 dark:text-slate-400 text-sm max-w-lg">Intelligent summary based on 2024 feedback, goal completion, and peer reviews.</p>
+</div>
+<button class="whitespace-nowrap flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-xl text-sm font-bold shadow-lg shadow-primary/30 hover:opacity-90 transition-all">
+<span class="material-symbols-outlined">refresh</span>
+            Regenerate AI Review
+        </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="p-4 bg-green-50 dark:bg-green-900/10 rounded-xl border border-green-100 dark:border-green-900/20">
+<p class="text-xs font-bold text-green-600 dark:text-green-400 uppercase mb-3 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span> Key Strengths
+            </p>
+<ul class="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+<li class="flex items-start gap-2"><span class="text-green-500">•</span> Exceptional campaign ROI management (+15% vs target)</li>
+<li class="flex items-start gap-2"><span class="text-green-500">•</span> Strong technical proficiency in Google Ads suite</li>
+<li class="flex items-start gap-2"><span class="text-green-500">•</span> Highly praised by peers for cross-team collaboration</li>
+</ul>
+</div>
+<div class="p-4 bg-amber-50 dark:bg-amber-900/10 rounded-xl border border-amber-100 dark:border-amber-900/20">
+<p class="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase mb-3 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">error</span> Focus Areas
+            </p>
+<ul class="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+<li class="flex items-start gap-2"><span class="text-amber-500">•</span> Opportunity to scale new market lead generation strategies</li>
+<li class="flex items-start gap-2"><span class="text-amber-500">•</span> Could benefit from advanced leadership training for future roles</li>
+</ul>
+</div>
+</div>
+</div><div class="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm hover-lift">
+<h4 class="font-bold mb-6 flex items-center justify-between">
+        Recent Activity Log
+        <button class="text-xs text-primary font-bold hover:underline">View All</button>
+</h4>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="size-10 rounded-xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-blue-500">
+<span class="material-symbols-outlined">school</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold">Google Ads Advanced Certification</p>
+<p class="text-xs text-slate-500">Completed with 98% score • 2 days ago</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="size-10 rounded-xl bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center text-purple-500">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold">Salary Adjustment Processed</p>
+<p class="text-xs text-slate-500">Reflected in Jan 2025 cycle • 1 week ago</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="size-10 rounded-xl bg-amber-50 dark:bg-amber-900/20 flex items-center justify-center text-amber-500">
+<span class="material-symbols-outlined">comment</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold">Peer Feedback Received</p>
+<p class="text-xs text-slate-500">"Great job on the Q4 recap!" - Mark D. • 2 weeks ago</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Stats & Timeline -->
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<!-- Performance Overview Score -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover-lift">
+<h4 class="font-bold mb-6">Performance Overview</h4>
+<div class="flex flex-col items-center mb-8">
+<div class="relative size-40">
+<svg class="size-full" viewbox="0 0 100 100">
+<circle class="text-slate-100 dark:text-slate-800" cx="50" cy="50" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="50" cy="50" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="37.6" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-4xl font-extrabold">85</span>
+<span class="text-xs text-slate-500 uppercase font-bold">Out of 100</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-800">
+<p class="text-[10px] text-slate-500 font-bold uppercase mb-1">Last Quarter</p>
+<p class="text-lg font-bold">80 <span class="text-xs text-green-500 ml-1">+6%</span></p>
+</div>
+<div class="p-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-800">
+<p class="text-[10px] text-slate-500 font-bold uppercase mb-1">Global Rank</p>
+<p class="text-lg font-bold">Top 20%</p>
+</div>
+<div class="col-span-2 p-3 bg-primary/5 rounded-xl border border-primary/10 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">event</span>
+<p class="text-sm font-semibold">Next Review Cycle</p>
+</div>
+<span class="text-sm font-bold text-primary">In 45 Days</span>
+</div>
+</div>
+</div><div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover-lift">
+<h4 class="font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">compare_arrows</span>
+        Department Comparison
+    </h4>
+<div class="space-y-4">
+<div class="space-y-1">
+<div class="flex justify-between text-[10px] font-bold uppercase text-slate-500">
+<span>Emily Carter</span>
+<span>85</span>
+</div>
+<div class="h-1.5 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-[10px] font-bold uppercase text-slate-500">
+<span>Marketing Avg</span>
+<span>78</span>
+</div>
+<div class="h-1.5 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-slate-300 dark:bg-slate-600 rounded-full" style="width: 78%"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-[10px] font-bold uppercase text-slate-500">
+<span>Top Performer</span>
+<span>92</span>
+</div>
+<div class="h-1.5 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-green-400 rounded-full" style="width: 92%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Goals & Achievements -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover-lift">
+<h4 class="font-bold mb-6">Q1 Goals &amp; Targets</h4>
+<div class="space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="font-semibold text-sm text-slate-700 dark:text-slate-300">Campaign ROI Target</span>
+</div>
+<span class="text-xs font-bold bg-indigo-50 text-primary px-2 py-0.5 rounded">92% - On Track</span>
+</div>
+<div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 92%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-green-500 text-sm">verified</span>
+<span class="font-semibold text-sm text-slate-700 dark:text-slate-300">Google Ads Certification</span>
+</div>
+<span class="text-xs font-bold bg-green-50 text-green-600 px-2 py-0.5 rounded">100% - Completed</span>
+</div>
+<div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-green-500 rounded-full" style="width: 100%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-500 text-sm">warning</span>
+<span class="font-semibold text-sm text-slate-700 dark:text-slate-300">New Market Lead Gen</span>
+</div>
+<span class="text-xs font-bold bg-amber-50 text-amber-600 px-2 py-0.5 rounded">64% - Needs Attention</span>
+</div>
+<div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-amber-500 rounded-full" style="width: 64%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Promotion History Timeline -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover-lift">
+<h4 class="font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-green-500">verified_user</span>
+        Retention Risk
+    </h4>
+<div class="flex items-center gap-4">
+<div class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-bold rounded-full">
+            LOW RISK
+        </div>
+<p class="text-xs text-slate-500">High engagement scores and recent promotion indicate strong company alignment.</p>
+</div>
+</div><div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover-lift">
+<h4 class="font-bold mb-6">Career Milestone</h4>
+<div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:bg-slate-100 dark:before:bg-slate-800">
+<div class="relative pl-12">
+<div class="absolute left-0 top-0 size-10 bg-primary border-4 border-white dark:border-slate-900 rounded-full flex items-center justify-center text-white z-10 shadow-lg">
+<span class="material-symbols-outlined text-[20px]">stars</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 mb-1">
+<span class="text-xs font-bold text-slate-400 uppercase">Jan 2025</span>
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded-full">CURRENT ROLE</span>
+</div>
+<span class="font-bold text-slate-900 dark:text-white">Marketing Specialist</span>
+<p class="text-xs text-slate-500 mt-1">Promoted for exceeding annual ROI targets by 15%. Department: Marketing &amp; Communications.</p>
+</div>
+</div>
+<div class="relative pl-12">
+<div class="absolute left-0 top-0 size-10 bg-slate-100 dark:bg-slate-800 border-4 border-white dark:border-slate-900 rounded-full flex items-center justify-center text-slate-500 z-10 shadow-sm">
+<span class="material-symbols-outlined text-[20px] text-indigo-400">military_tech</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-slate-400 uppercase">Jul 2023</span>
+<span class="font-bold">Marketing Executive</span>
+<p class="text-xs text-slate-500 mt-1">Consistently delivered high-quality campaign analysis. NY Branch.</p>
+</div>
+</div>
+<div class="relative pl-12">
+<div class="absolute left-0 top-0 size-10 bg-slate-100 dark:bg-slate-800 border-4 border-white dark:border-slate-900 rounded-full flex items-center justify-center text-slate-500 z-10 shadow-sm">
+<span class="material-symbols-outlined text-[20px] text-slate-400">person_add</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-slate-400 uppercase">Mar 2022</span>
+<span class="font-bold text-slate-500">Associate Analyst</span>
+<p class="text-xs text-slate-500 mt-1">Joined the Stratum Marketing Team (NY Office).</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
