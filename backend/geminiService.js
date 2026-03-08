@@ -14,7 +14,7 @@ export async function generatePerformanceReview(employeeData) {
     try {
         // Select the model. gemini-1.5-flash is the recommended current model for general text tasks,
         // but we can stick to gemini-pro or gemini-1.5-pro as well. Using gemini-1.5-flash as it's standard and fast.
-        const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
         const prompt = `Write a professional HR performance review for the following employee:
 
@@ -24,7 +24,6 @@ Performance Score: ${employeeData.performanceScore}
 Attendance: ${employeeData.attendance}%
 Task Completion Rate: ${employeeData.taskCompletion}%
 Years in Company: ${employeeData.yearsInCompany}
-Salary: ${employeeData.salary}
 
 Ensure the tone is constructive, professional, and highlights both achievements and areas for growth based on standard HR practices. Do not include any markdown formatting like bolding or headers, just return a clean string paragraph.
 `;
